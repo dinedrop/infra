@@ -1,0 +1,33 @@
+apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: dripstore-skaffold
+build:
+  local:
+    push: false
+  artifacts:
+    - image: dinedrop/authentication-service
+      context: authentication-service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: "."
+          - src: "src/**/*.js"
+            dest: "."
+    - image: dinedrop/user-management-service
+      context: user-management-service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: "."
+          - src: "src/**/*.js"
+            dest: "."
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
+deploy:
+  kubectl: {}
