@@ -14,8 +14,6 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: "."
-          - src: "src/**/*.js"
-            dest: "."
     - image: dinedrop/user-management-service
       context: user-management-service
       docker:
@@ -23,8 +21,6 @@ build:
       sync:
         manual:
           - src: "src/**/*.ts"
-            dest: "."
-          - src: "src/**/*.js"
             dest: "."
 manifests:
   rawYaml:
