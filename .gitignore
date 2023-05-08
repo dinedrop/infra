@@ -1,3 +1,7 @@
 authentication-service
 shared
 user-management-service
+cart-service
+order-service
+restaurant-service
+discount-service
